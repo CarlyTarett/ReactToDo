@@ -1,24 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
+import Header from './Header.js';
+import InputTask from './InputTask.js';
+import TaskCount from './TaskCount.js';
+
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+          <Header/>
+          <InputTask/>
+          <TaskCount/>
+
+          <div className="container">
+              <Task text="here is the text1"/>
+              <Task text="here is the text2"/>
+              <Task text="here is the text3"/>
+          </div>
+
     </div>
   );
 }
