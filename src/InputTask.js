@@ -1,14 +1,16 @@
 import React from "react";
 
-class Header extends React.Component {
+class InputTask extends React.Component {
   render() {
     return (
   
+<form>
+                <input type="text"></input>
+            <button type="button">Add</button>
+</form>
 
-
-        
     );
   }
 }
 
-export default Header;
+export default InputTask;

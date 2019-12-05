@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Header from './Header.js';
 import InputTask from './InputTask.js';
 import TaskCount from './TaskCount.js';
+import Task from './Task.js';
 
 
 import './App.css';
