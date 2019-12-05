@@ -11,8 +11,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-
-      
+     
          <head>
        
          </head>
@@ -22,13 +21,18 @@ function App() {
     
           <Header/>
 
-       
-
-  
+<div className="row">
+        <div className="col-12 col-sm-6">
+          
           <InputTask/>
-          <TaskCount/>
+        </div>
 
-         
+        <div className="col-12 col-sm-6">
+
+          <TaskCount/>
+          </div>
+</div>
+     
               <Task text="First Task"/>
               <Task text="Second Task"/>
           </div>

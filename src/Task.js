@@ -6,13 +6,13 @@ class Task extends React.Component {
 
 
 <div className="row">
-        <div className="col-12 col-sm-6">
+        <div className="col-6 col-sm-6">
                  <p>{this.props.text}</p>
         </div>
-        <div className="col-12 col-sm-3">
+        <div className="col-3 col-sm-3">
              <button className="btn btn-primary">Done</button>
         </div>
-        <div className="col-12 col-sm-3">
+        <div className="col-3 col-sm-3">
              <button className="btn btn-primary">Delete</button>
         </div>
 
