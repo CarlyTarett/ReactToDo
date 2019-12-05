@@ -9,12 +9,12 @@ class Task extends React.Component {
         <div className="col-12 col-sm-6">
                  <p>{this.props.text}</p>
         </div>
-     <div className="col-12 col-sm-3">
+        <div className="col-12 col-sm-3">
              <button className="btn btn-primary">Done</button>
-    </div>
-    <div className="col-12 col-sm-3">
+        </div>
+        <div className="col-12 col-sm-3">
              <button className="btn btn-primary">Delete</button>
-    </div>
+        </div>
 
 
 </div>

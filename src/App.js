@@ -11,16 +11,29 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+
+      
+         <head>
+       
+         </head>
+
+         <body>
+         <div className="container">
     
           <Header/>
+
+       
+
+  
           <InputTask/>
           <TaskCount/>
 
-          <div className="container">
-              <Task text="here is the text1"/>
-              <Task text="here is the text2"/>
-              <Task text="here is the text3"/>
+         
+              <Task text="First Task"/>
+              <Task text="Second Task"/>
           </div>
+
+        </body>
 
     </div>
   );
