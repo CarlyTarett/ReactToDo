@@ -6,6 +6,7 @@ import TaskCount from './TaskCount.js';
 import Task from './Task.js';
 
 
+
 import './App.css';
 
 class App extends React.Component {
@@ -27,8 +28,12 @@ render(){
 
          <body>
          <div className="container">
-    
+
+          <div className="row "> 
               <Header/>
+
+          </div>
+          
 
               <div className="row"> 
 
