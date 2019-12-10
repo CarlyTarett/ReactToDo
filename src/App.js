@@ -8,7 +8,16 @@ import Task from './Task.js';
 
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  state = {
+    tasks: [
+      {key: 1 , description: "task ", status:  "live" , dateAdded: "2019-12-02" },
+      {key: 2 , description: "task ", status: "live", dateAdded: "2019-12-02" },
+      {key: 3 , description: "task ", status: "live" , dateAdded: "2019-12-02" }
+    ]
+  }
+
+render(){
   return (
     <div className="App">
      
@@ -21,26 +30,29 @@ function App() {
     
           <Header/>
 
-<div className="row">
-        <div className="col-12 col-sm-6">
+              {/* <div className="row"> */}
+             {/* <div className="col-12 col-sm-6"> */}
           
           <InputTask/>
-        </div>
+               {/* </div> */}
 
-        <div className="col-12 col-sm-6">
+        {/* <div className="col-12 col-sm-6"> */}
 
-          <TaskCount/>
-          </div>
-</div>
+        <TaskCount/>
+
+        {this.state.tasks.map(task => {  return <Task text={task.description}  />})}
+
+          {/* </div> */}
+{/* </div> */}
      
-              <Task text="First Task"/>
-              <Task text="Second Task"/>
+          
           </div>
 
         </body>
 
     </div>
   );
+}
 }
 
 export default App;
