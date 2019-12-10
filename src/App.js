@@ -30,15 +30,17 @@ render(){
     
           <Header/>
 
-              {/* <div className="row"> */}
-             {/* <div className="col-12 col-sm-6"> */}
-          
-          <InputTask/>
-               {/* </div> */}
 
-        {/* <div className="col-12 col-sm-6"> */}
+          <div className="row"> 
 
-        <TaskCount/>
+               <InputTask/>
+              
+
+               {/*  */}
+
+               <TaskCount/>
+
+          </div>
 
         {this.state.tasks.map(task => {  return <Task text={task.description}  />})}
 
