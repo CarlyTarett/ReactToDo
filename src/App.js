@@ -32,9 +32,10 @@ class App extends React.Component {
           <TaskCount number={this.state.tasks.length} />
 
 
+          <p>Current Tasks</p>
+          {this.state.tasks.map(task => { return <Task text={task.description} /> }  )  }
 
-          {this.state.tasks.map(task => { return <Task text={task.description} /> })}
-
+          <p id="completed" >Completed Tasks</p>
 
 
         </div>
