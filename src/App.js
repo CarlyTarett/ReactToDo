@@ -26,14 +26,16 @@ class App extends React.Component {
 
         <div className="container">
 
-       
-            <Header />
-            <InputTask />
-            <TaskCount number={this.state.tasks.length} />
 
-      
+          <Header />
+          <InputTask />
+          <TaskCount number={this.state.tasks.length} />
+
+
 
           {this.state.tasks.map(task => { return <Task text={task.description} /> })}
+
+
 
         </div>
 

@@ -18,7 +18,7 @@ class InputTask extends React.Component {
   render() {
     return (
 
-      <div>
+      <div className="row myInput">
         <div className="col-8">
 
           <input type="text"
@@ -31,11 +31,13 @@ class InputTask extends React.Component {
         <div className="col-4">
 
 
-          <button type="button">Add</button>
-        </div>
+        <button className="btn btn-primary">Add</button>       
+         </div>
 
 
       </div>
+
+    
 
 
 

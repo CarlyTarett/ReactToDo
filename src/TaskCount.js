@@ -4,12 +4,12 @@ class TaskCount extends React.Component {
   render() {
     return (
 
-      <div>
+ 
 
-      <p>Things to do: {this.props.number} </p>
+        <p>Things to do: {this.props.number} </p>
 
-      </div>
     
+
     );
   }
 }
