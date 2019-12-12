@@ -4,9 +4,9 @@ class TaskCount extends React.Component {
   render() {
     return (
 
-      <div className="col-12 col-sm-6">
+      <div>
 
-      <h1>Things to do: {this.props.number} </h1>
+      <p>Things to do: {this.props.number} </p>
 
       </div>
     

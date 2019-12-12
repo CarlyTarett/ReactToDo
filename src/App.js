@@ -12,45 +12,36 @@ import './App.css';
 class App extends React.Component {
   state = {
     tasks: [
-      {key: 1 , description: "task ", status:  "live" , dateAdded: "2019-12-02" },
-      {key: 2 , description: "task ", status: "live", dateAdded: "2019-12-02" },
-      {key: 3 , description: "task ", status: "live" , dateAdded: "2019-12-02" }
+      { key: 1, description: "task ", status: "live", dateAdded: "2019-12-02" },
+      { key: 2, description: "task ", status: "live", dateAdded: "2019-12-02" },
+      { key: 3, description: "task ", status: "live", dateAdded: "2019-12-02" }
     ]
   }
 
-render(){
-  return (
-    <div className="App">
-     
-         <head>
+  render() {
+    return (
+      <div className="App">
+
+
+
+        <div className="container">
+
        
-         </head>
+            <Header />
+            <InputTask />
+            <TaskCount number={this.state.tasks.length} />
 
-         <body>
-         <div className="container">
+      
 
-          <div className="row "> 
-              <Header/>
+          {this.state.tasks.map(task => { return <Task text={task.description} /> })}
 
-          </div>
-          
+        </div>
 
-              <div className="row"> 
 
-                  <InputTask/>
-                  <TaskCount number={this.state.tasks.length}/>
 
-              </div>
-
-              {this.state.tasks.map(task => {  return <Task text={task.description}  />})}
-                
-           </div>
-
-        </body>
-
-    </div>
-  );
-}
+      </div>
+    );
+  }
 }
 
 export default App;
