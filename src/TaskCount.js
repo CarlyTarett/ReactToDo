@@ -1,12 +1,15 @@
 import React from "react";
 
+import "./TaskCount.css";
+
+
 class TaskCount extends React.Component {
   render() {
     return (
 
  
 
-        <p>Things to do: {this.props.number} </p>
+        <p className= "tc">Things to do: {this.props.number} </p>
 
     
 

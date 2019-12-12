@@ -1,5 +1,8 @@
 import React from "react";
 
+import "./InputTask.css";
+
+
 class InputTask extends React.Component {
 
   state = {
