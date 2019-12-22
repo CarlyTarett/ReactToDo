@@ -1,6 +1,11 @@
 import React from "react";
 
 class Task extends React.Component {
+
+  handleDelete = () => {
+    this.props.deleteTaskFunc(this.props.id);
+  }
+
   render() {
     return (
 
@@ -13,7 +18,9 @@ class Task extends React.Component {
              <button className="btn btn-primary">Done</button>
         </div>
         <div className="col-3 col-sm-3">
-             <button className="btn btn-primary">Delete</button>
+        <button className="btn btn-danger" onClick={this.handleDelete}>
+            Delete
+          </button>
         </div>
 
 

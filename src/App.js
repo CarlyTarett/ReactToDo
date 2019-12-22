@@ -40,6 +40,18 @@ class App extends React.Component {
     });
   };
 
+  deleteTask = id => {
+
+    console.log("deleting a task");
+    const filteredTasks = this.state.tasks.filter(task => {
+      return task.id !== id;
+    });
+    console.log(filteredTasks);
+    this.setState({
+      tasks: filteredTasks
+    });
+  };
+
   render() {
     const liveTasks = this.state.tasks.filter(task => {
       return task.status === "live";
@@ -65,13 +77,13 @@ class App extends React.Component {
           {liveTasks.map(task => {
             return (
               <Task
-                // deleteDeveloperFunc={this.deleteDeveloper}
+                deleteTaskFunc={this.deleteTask}
                 // id={developer.id}
                 // available={developer.available}
                 // name={developer.name}
                 // skills={developer.skills}
                 // dateJoined={developer.dateJoined}
-               id={task.id}
+                id={task.id}
                 text={task.description}
               />
             );
@@ -82,13 +94,13 @@ class App extends React.Component {
           {completedTasks.map(task => {
             return (
               <Task
-                // deleteDeveloperFunc={this.deleteDeveloper}
+              deleteTaskFunc={this.deleteTask}
                 // id={developer.id}
                 // available={developer.available}
                 // name={developer.name}
                 // skills={developer.skills}
                 // dateJoined={developer.dateJoined}
-                // id={developer.id}
+                id={task.id}
                 text={task.description}
               />
             );
