@@ -14,11 +14,20 @@ class App extends React.Component {
     tasks: [
       { key: 1, description: "task ", status: "live", dateAdded: "2019-12-02" },
       { key: 2, description: "task ", status: "live", dateAdded: "2019-12-02" },
-      { key: 3, description: "task ", status: "live", dateAdded: "2019-12-02" }
+      { key: 3, description: "task ", status: "completed", dateAdded: "2019-12-02" }
     ]
   }
 
   render() {
+    const liveTasks = this.state.tasks.filter(task => {
+      return task.status === "live";
+    });
+
+    const completedTasks = this.state.tasks.filter(task => {
+      return task.status === "completed";
+    });
+
+
     return (
       <div className="App">
 
@@ -33,9 +42,42 @@ class App extends React.Component {
 
 
           <p>Current Tasks</p>
-          {this.state.tasks.map(task => { return <Task text={task.description} /> }  )  }
+
+          {liveTasks.map(task => {
+            return (
+              <Task
+                // deleteDeveloperFunc={this.deleteDeveloper}
+                // key={developer.id}
+                // available={developer.available}
+                // name={developer.name}
+                // skills={developer.skills}
+                // dateJoined={developer.dateJoined}
+                // id={developer.id}
+                text={task.description}
+              />
+            );
+          })}
+
+
+          
+          {/* {this.state.tasks.map(task => { return <Task text={task.description} /> }  )  } */}
 
           <p id="completed" >Completed Tasks</p>
+  
+          {completedTasks.map(task => {
+            return (
+              <Task
+                // deleteDeveloperFunc={this.deleteDeveloper}
+                // key={developer.id}
+                // available={developer.available}
+                // name={developer.name}
+                // skills={developer.skills}
+                // dateJoined={developer.dateJoined}
+                // id={developer.id}
+                text={task.description}
+              />
+            );
+          })}        
 
 
         </div>
