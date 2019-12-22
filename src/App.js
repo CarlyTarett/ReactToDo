@@ -13,9 +13,9 @@ import './App.css';
 class App extends React.Component {
   state = {
     tasks: [
-      { key: uuid(), description: "Task 1", status: "live", dateAdded: "2019-12-02" },
-      { key: uuid(), description: "Task 2 ", status: "live", dateAdded: "2019-12-02" },
-      { key: uuid(), description: "Task 3", status: "completed", dateAdded: "2019-12-02" }
+      { id: uuid(), description: "Task 1", status: "live", dateAdded: "2019-12-02" },
+      { id: uuid(), description: "Task 2 ", status: "live", dateAdded: "2019-12-02" },
+      { id: uuid(), description: "Task 3", status: "completed", dateAdded: "2019-12-02" }
     ]
   }
 
@@ -29,16 +29,12 @@ class App extends React.Component {
       description: description,
       status: "live",
       // dateJoined: dateJoined,
-      key: uuid()
+      id: uuid()
     };
 
     // // Copy the array of developers from state using slice
     const copy = this.state.tasks.slice();
-
-    // // Push that object into the array of developers
     copy.push(newTask);
-
-    // Make sure state is updated
     this.setState({
       tasks: copy
     });
@@ -57,16 +53,12 @@ class App extends React.Component {
     return (
       <div className="App">
 
-
-
         <div className="container">
 
-
           <Header />
-   
+
           <InputTask inputTaskFunc={this.inputNewTask} />
           <TaskCount number={liveTasks.length} />
-
 
           <p>Current Tasks</p>
 
@@ -74,7 +66,24 @@ class App extends React.Component {
             return (
               <Task
                 // deleteDeveloperFunc={this.deleteDeveloper}
-                // key={developer.id}
+                // id={developer.id}
+                // available={developer.available}
+                // name={developer.name}
+                // skills={developer.skills}
+                // dateJoined={developer.dateJoined}
+               id={task.id}
+                text={task.description}
+              />
+            );
+          })}
+
+          <p id="completed" >Completed Tasks</p>
+
+          {completedTasks.map(task => {
+            return (
+              <Task
+                // deleteDeveloperFunc={this.deleteDeveloper}
+                // id={developer.id}
                 // available={developer.available}
                 // name={developer.name}
                 // skills={developer.skills}
@@ -85,31 +94,7 @@ class App extends React.Component {
             );
           })}
 
-
-          
-          {/* {this.state.tasks.map(task => { return <Task text={task.description} /> }  )  } */}
-
-          <p id="completed" >Completed Tasks</p>
-  
-          {completedTasks.map(task => {
-            return (
-              <Task
-                // deleteDeveloperFunc={this.deleteDeveloper}
-                // key={developer.id}
-                // available={developer.available}
-                // name={developer.name}
-                // skills={developer.skills}
-                // dateJoined={developer.dateJoined}
-                // id={developer.id}
-                text={task.description}
-              />
-            );
-          })}        
-
-
         </div>
-
-
 
       </div>
     );
