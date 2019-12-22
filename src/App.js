@@ -38,7 +38,7 @@ class App extends React.Component {
 
           <Header />
           <InputTask />
-          <TaskCount number={this.state.tasks.length} />
+          <TaskCount number={liveTasks.length} />
 
 
           <p>Current Tasks</p>
