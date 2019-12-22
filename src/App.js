@@ -24,25 +24,24 @@ class App extends React.Component {
   inputNewTask = (description) => {
     console.log("input a task");
 
-    // // Create a new developer object
-    // const newDev = {
-    //   name: name,
-    //   skills: skills,
-    //   available: true,
-    //   dateJoined: dateJoined,
-    //   id: uuid()
-    // };
+    // Create a new developer object
+    const newTask = {
+      description: description,
+      status: "live",
+      // dateJoined: dateJoined,
+      key: uuid()
+    };
 
     // // Copy the array of developers from state using slice
-    // const copy = this.state.developers.slice();
+    const copy = this.state.tasks.slice();
 
     // // Push that object into the array of developers
-    // copy.push(newDev);
+    copy.push(newTask);
 
-    // // Make sure state is updated
-    // this.setState({
-    //   developers: copy
-    // });
+    // Make sure state is updated
+    this.setState({
+      tasks: copy
+    });
   };
 
   render() {
