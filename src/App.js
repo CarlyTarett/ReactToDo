@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import uuid from "uuid/v4";
 import Header from './Header.js';
 import InputTask from './InputTask.js';
 import TaskCount from './TaskCount.js';
@@ -12,11 +13,37 @@ import './App.css';
 class App extends React.Component {
   state = {
     tasks: [
-      { key: 1, description: "task ", status: "live", dateAdded: "2019-12-02" },
-      { key: 2, description: "task ", status: "live", dateAdded: "2019-12-02" },
-      { key: 3, description: "task ", status: "completed", dateAdded: "2019-12-02" }
+      { key: uuid(), description: "Task 1", status: "live", dateAdded: "2019-12-02" },
+      { key: uuid(), description: "Task 2 ", status: "live", dateAdded: "2019-12-02" },
+      { key: uuid(), description: "Task 3", status: "completed", dateAdded: "2019-12-02" }
     ]
   }
+
+  //changes app's state by adding a developer to it
+
+  inputNewTask = (description) => {
+    console.log("input a task");
+
+    // // Create a new developer object
+    // const newDev = {
+    //   name: name,
+    //   skills: skills,
+    //   available: true,
+    //   dateJoined: dateJoined,
+    //   id: uuid()
+    // };
+
+    // // Copy the array of developers from state using slice
+    // const copy = this.state.developers.slice();
+
+    // // Push that object into the array of developers
+    // copy.push(newDev);
+
+    // // Make sure state is updated
+    // this.setState({
+    //   developers: copy
+    // });
+  };
 
   render() {
     const liveTasks = this.state.tasks.filter(task => {
@@ -37,7 +64,8 @@ class App extends React.Component {
 
 
           <Header />
-          <InputTask />
+   
+          <InputTask inputTaskFunc={this.inputNewTask} />
           <TaskCount number={liveTasks.length} />
 
 

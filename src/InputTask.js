@@ -18,6 +18,21 @@ class InputTask extends React.Component {
     });
   }
 
+  inputTask = () => {
+    // Maybe don't let someone add the new developer if the name/skills is empty
+
+    // const skillsArray = this.state.skills.split(",");
+    // const filteredSkills = skillsArray.filter(skill => {
+    //   return skill.length > 0;
+    // });
+
+    this.props.inputTaskFunc(
+      this.state.description
+    );
+
+    // Reset state to empty values/intital values
+  };
+
 
 
   render() {
@@ -36,13 +51,16 @@ class InputTask extends React.Component {
         <div className="col-4">
 
 
-        <button className="btn btn-primary">Add</button>       
-         </div>
+          <button className="btn btn-primary" onClick={this.inputTask}>
+            Add
+          </button>
+
+        </div>
 
 
       </div>
 
-    
+
 
 
 
