@@ -79,7 +79,7 @@ class App extends React.Component {
               <Task
                 deleteTaskFunc={this.deleteTask}
                 // id={developer.id}
-                // available={developer.available}
+                status={task.status}
                 // name={developer.name}
                 // skills={developer.skills}
                 // dateJoined={developer.dateJoined}
@@ -96,7 +96,7 @@ class App extends React.Component {
               <Task
               deleteTaskFunc={this.deleteTask}
                 // id={developer.id}
-                // available={developer.available}
+                status={task.status}
                 // name={developer.name}
                 // skills={developer.skills}
                 // dateJoined={developer.dateJoined}

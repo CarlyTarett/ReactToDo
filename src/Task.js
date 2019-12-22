@@ -15,7 +15,16 @@ class Task extends React.Component {
                  <p>{this.props.text}</p>
         </div>
         <div className="col-3 col-sm-3">
-             <button className="btn btn-primary">Done</button>
+
+
+        {this.props.status === "live" ? (
+            <button className="btn btn-primary book-button">Done</button>
+          ) : (
+            <p></p>
+
+          )}
+
+             {/* <button className="btn btn-primary">Done</button> */}
         </div>
         <div className="col-3 col-sm-3">
         <button className="btn btn-danger" onClick={this.handleDelete}>
