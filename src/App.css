@@ -9,6 +9,13 @@ body > #root > div {
   height: 100vh;
 }
 
+#completed{
+    padding: 30px;
+    border: 0,0,100px,0; 
+
+}
+ 
+
 
 /* body{
 min-height: 100%;
@@ -47,9 +54,4 @@ html {
 */
 
 
-#completed{
-padding: 30px;
-border: 0,0,100px,0; 
 
-}
- 

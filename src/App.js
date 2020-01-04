@@ -84,57 +84,58 @@ class App extends React.Component {
 
         <div className="container">
 
-                          <div className="row">
-                                <div className="col-2 col-sm-2 edge"> 
-                            <div style = {{height:"100vh"}}> </div>
-                            </div>
-                          <div className="col-8 col-sm-8">
+            <div className="row">
+                <div className="col-2 col-sm-2 edge"> 
+                      <div style = {{height:"100vh"}}> </div>
+                </div>
 
-          <Header />
+               <div className="col-8 col-sm-8">
 
-          <InputTask inputTaskFunc={this.inputNewTask} />
-          <TaskCount number={liveTasks.length} />
+                        <Header />
 
-          <p>Current Tasks</p>
+                        <InputTask inputTaskFunc={this.inputNewTask} />
+                        <TaskCount number={liveTasks.length} />
 
-          {liveTasks.map(task => {
-            return (
-              <Task
-                deleteTaskFunc={this.deleteTask}
-                markTaskDoneFunc={this.markDone}
-                status={task.status}
-                // name={developer.name}
-                // skills={developer.skills}
-                // dateJoined={developer.dateJoined}
-                id={task.id}
-                text={task.description}
-              />
-            );
-          })}
+                        <p>Current Tasks</p>
 
-          <scan id="completed" > </scan>
-          <p >Completed Tasks</p>
-          {completedTasks.map(task => {
-            return (
-              <Task
-              deleteTaskFunc={this.deleteTask}
-                status={task.status}
-                // name={developer.name}
-                // skills={developer.skills}
-                // dateJoined={developer.dateJoined}
-                id={task.id}
-                text={task.description}
-              />
-            );
-          })}
+                        {liveTasks.map(task => {
+                          return (
+                            <Task
+                              deleteTaskFunc={this.deleteTask}
+                              markTaskDoneFunc={this.markDone}
+                              status={task.status}
+                              // name={developer.name}
+                              // skills={developer.skills}
+                              // dateJoined={developer.dateJoined}
+                              id={task.id}
+                              text={task.description}
+                            />
+                          );
+                        })}
+
+                        <scan id="completed" > </scan>
+                        <p >Completed Tasks</p>
+                        {completedTasks.map(task => {
+                          return (
+                            <Task
+                            deleteTaskFunc={this.deleteTask}
+                              status={task.status}
+                              // name={developer.name}
+                              // skills={developer.skills}
+                              // dateJoined={developer.dateJoined}
+                              id={task.id}
+                              text={task.description}
+                            />
+                          );
+                        })}
 
    
 
-                          </div>
-                          <div className="col-2 col-sm-2 edge">
-                        <div> </div>
-                          </div>
-                          </div>
+                  </div>
+                       <div className="col-2 col-sm-2 edge">
+                         <div> </div>
+                      </div>
+              </div>
         </div>
 
       </div>
