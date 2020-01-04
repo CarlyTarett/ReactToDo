@@ -6,6 +6,9 @@ class Task extends React.Component {
     this.props.deleteTaskFunc(this.props.id);
   }
 
+  handleDone = () => {
+    this.props.markTaskDoneFunc(this.props.id);
+  }
   render() {
     return (
 
@@ -18,7 +21,7 @@ class Task extends React.Component {
 
 
         {this.props.status === "live" ? (
-            <button className="btn btn-primary book-button">Done</button>
+            <button className="btn btn-primary book-button"onClick={this.handleDone}>Done</button>
           ) : (
             <p></p>
 

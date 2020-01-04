@@ -52,6 +52,23 @@ class App extends React.Component {
     });
   };
 
+    markDone = id => {
+
+    console.log("deleting a task");
+    const filteredTasks = this.state.tasks.map(task => {
+      
+      if(task.id !== id)
+      return task;
+      else
+      task.status = "done"
+      return task;
+    });
+    console.log(filteredTasks);
+    this.setState({
+      tasks: filteredTasks
+    });
+  };
+
   render() {
     const liveTasks = this.state.tasks.filter(task => {
       return task.status === "live";
@@ -78,7 +95,7 @@ class App extends React.Component {
             return (
               <Task
                 deleteTaskFunc={this.deleteTask}
-                // id={developer.id}
+                markTaskDoneFunc={this.markDone}
                 status={task.status}
                 // name={developer.name}
                 // skills={developer.skills}
@@ -95,7 +112,6 @@ class App extends React.Component {
             return (
               <Task
               deleteTaskFunc={this.deleteTask}
-                // id={developer.id}
                 status={task.status}
                 // name={developer.name}
                 // skills={developer.skills}
