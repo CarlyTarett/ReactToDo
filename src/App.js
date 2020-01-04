@@ -84,6 +84,12 @@ class App extends React.Component {
 
         <div className="container">
 
+                          <div className="row">
+                                <div className="col-2 col-sm-2 edge"> 
+                            <div style = {{height:"100vh"}}> </div>
+                            </div>
+                          <div className="col-8 col-sm-8">
+
           <Header />
 
           <InputTask inputTaskFunc={this.inputNewTask} />
@@ -122,6 +128,11 @@ class App extends React.Component {
             );
           })}
 
+                          </div>
+                          <div className="col-2 col-sm-2 edge">
+                        <div> </div>
+                          </div>
+                          </div>
         </div>
 
       </div>
