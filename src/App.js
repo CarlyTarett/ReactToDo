@@ -112,7 +112,7 @@ class App extends React.Component {
             );
           })}
 
-          <scan id="completed" >
+          <scan id="completed" > </scan>
           <p >Completed Tasks</p>
           {completedTasks.map(task => {
             return (
@@ -128,7 +128,7 @@ class App extends React.Component {
             );
           })}
 
-          </scan>
+   
 
                           </div>
                           <div className="col-2 col-sm-2 edge">
