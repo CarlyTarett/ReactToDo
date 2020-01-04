@@ -112,8 +112,8 @@ class App extends React.Component {
             );
           })}
 
-          <p id="completed" >Completed Tasks</p>
-
+          <scan id="completed" >
+          <p >Completed Tasks</p>
           {completedTasks.map(task => {
             return (
               <Task
@@ -127,6 +127,8 @@ class App extends React.Component {
               />
             );
           })}
+
+          </scan>
 
                           </div>
                           <div className="col-2 col-sm-2 edge">
