@@ -93,7 +93,7 @@ class App extends React.Component {
 
                         <Header />
 
-                        <InputTask inputTaskFunc={this.inputNewTask} />
+                        <InputTask className="inputtask" inputTaskFunc={this.inputNewTask} />
                         <TaskCount number={liveTasks.length} />
 
                         <p>Current Tasks</p>

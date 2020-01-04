@@ -39,7 +39,7 @@ class InputTask extends React.Component {
     return (
 
       <div className="row myInput">
-        <div className="col-8">
+        <div className="col-10">
 
           <input type="text"
             onChange={this.updateName}
@@ -48,7 +48,7 @@ class InputTask extends React.Component {
 
         </div>
 
-        <div className="col-4">
+        <div className="col-2">
 
 
           <button className="btn btn-primary" onClick={this.inputTask}>
