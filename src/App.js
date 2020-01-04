@@ -60,7 +60,7 @@ class App extends React.Component {
       if(task.id !== id)
       return task;
       else
-      task.status = "done"
+      task.status = "completed"
       return task;
     });
     console.log(filteredTasks);
