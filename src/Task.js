@@ -14,13 +14,17 @@ class Task extends React.Component {
 
 
 <div className="row">
-        <div className="col-8 col-sm-8">
+        <div className="col-5 col-sm-5">
                  <p>{this.props.text}</p>
+        </div>
+                <div className="col-3 col-sm-3">
+                 <p>{this.props.dueDate}</p>
         </div>
         <div className="col-2 col-sm-2">
 
-
+  
         {this.props.status === "live" ? (
+          // XX change to completed is false
             <button className="btn btn-primary book-button"onClick={this.handleDone}>Done</button>
           ) : (
             <p></p>

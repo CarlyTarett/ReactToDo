@@ -5,6 +5,7 @@ import Header from './Header.js';
 import InputTask from './InputTask.js';
 import TaskCount from './TaskCount.js';
 import Task from './Task.js';
+import moment from "moment";
 
 
 
@@ -13,22 +14,26 @@ import './App.css';
 class App extends React.Component {
   state = {
     tasks: [
-      { id: uuid(), description: "Task 1", status: "live", dateAdded: "2019-12-02" },
-      { id: uuid(), description: "Task 2 ", status: "live", dateAdded: "2019-12-02" },
-      { id: uuid(), description: "Task 3", status: "completed", dateAdded: "2019-12-02" }
+      // XXX change status to deleted and completed - check with data base
+      { id: uuid(), description: "Task 1", status: "live", dateAdded: "2019-12-02", dueDate: moment().format().slice(0,10) },
+      { id: uuid(), description: "Task 2 ", status: "live", dateAdded: "2019-12-02", dueDate: "2020-12-02" },
+      { id: uuid(), description: "Task 3", status: "completed", dateAdded: "2019-12-02", dueDate: "2020-12-02" }
     ]
   }
 
   //changes app's state by adding a developer to it
 
-  inputNewTask = (description) => {
+  inputNewTask = (description, dueDate) => {
     console.log("input a task");
 
     // Create a new developer object
     const newTask = {
       description: description,
+
+      //XX change the status to completed and deleted
       status: "live",
-      // dateJoined: dateJoined,
+      dateAdded: moment().format().slice(0,10),
+      dueDate: dueDate,
       id: uuid()
     };
 
@@ -42,7 +47,9 @@ class App extends React.Component {
 
   deleteTask = id => {
 
-    console.log("deleting a task");
+
+    // XXX here i need to do the same as in markDone but change
+    // deleted to true
     const filteredTasks = this.state.tasks.filter(task => {
       return task.id !== id;
     });
@@ -54,12 +61,13 @@ class App extends React.Component {
 
     markDone = id => {
 
-    console.log("deleting a task");
     const filteredTasks = this.state.tasks.map(task => {
       
       if(task.id !== id)
       return task;
       else
+      // XXX here i need to change completed to true
+      
       task.status = "completed"
       return task;
     });
@@ -71,10 +79,12 @@ class App extends React.Component {
 
   render() {
     const liveTasks = this.state.tasks.filter(task => {
+      // XX here i need to look for tasks that are deleted false and completed false
       return task.status === "live";
     });
 
     const completedTasks = this.state.tasks.filter(task => {
+      // XX here i need to look for tasks that are deleted false and completed true
       return task.status === "completed";
     });
 
@@ -103,10 +113,9 @@ class App extends React.Component {
                             <Task
                               deleteTaskFunc={this.deleteTask}
                               markTaskDoneFunc={this.markDone}
+                              //XX here send in completed and deleted markers
                               status={task.status}
-                              // name={developer.name}
-                              // skills={developer.skills}
-                              // dateJoined={developer.dateJoined}
+                              dueDate={task.dueDate}
                               id={task.id}
                               text={task.description}
                             />
@@ -120,9 +129,6 @@ class App extends React.Component {
                             <Task
                             deleteTaskFunc={this.deleteTask}
                               status={task.status}
-                              // name={developer.name}
-                              // skills={developer.skills}
-                              // dateJoined={developer.dateJoined}
                               id={task.id}
                               text={task.description}
                             />
