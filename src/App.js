@@ -15,7 +15,7 @@ class App extends React.Component {
   state = {
     tasks: [
       // XXX change status to deleted and completed - check with data base
-      { id: uuid(), description: "Task 1", status: "live", dateAdded: "2019-12-02", dueDate: moment().format().slice(0,10) },
+      { id: uuid(), description: "Task 1", status: "live", dateAdded: "2019-12-02", dueDate: "2020-12-02" },
       { id: uuid(), description: "Task 2 ", status: "live", dateAdded: "2019-12-02", dueDate: "2020-12-02" },
       { id: uuid(), description: "Task 3", status: "completed", dateAdded: "2019-12-02", dueDate: "2020-12-02" }
     ]
@@ -47,11 +47,15 @@ class App extends React.Component {
 
   deleteTask = id => {
 
-
-    // XXX here i need to do the same as in markDone but change
-    // deleted to true
-    const filteredTasks = this.state.tasks.filter(task => {
-      return task.id !== id;
+    const filteredTasks = this.state.tasks.map(task => {
+      
+      if(task.id !== id)
+      return task;
+      else
+      // XXX here i need to change completed to true
+      
+      task.status = "deleted"
+      return task;
     });
     console.log(filteredTasks);
     this.setState({
