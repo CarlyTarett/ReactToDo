@@ -4,7 +4,6 @@ import "./InputTask.css";
 
 
 class InputTask extends React.Component {
-//XX need to change status to completed and deleted here too
   state = {
     description: "",
     status: "",
@@ -18,7 +17,7 @@ class InputTask extends React.Component {
     });
   }
 
-  
+
   updateDue = (event) => {
     this.setState({
       dueDate: event.target.value
@@ -47,7 +46,7 @@ class InputTask extends React.Component {
 
         </div>
 
-          <div className="col-4">
+        <div className="col-4">
 
           <input type="date"
             onChange={this.updateDue}
