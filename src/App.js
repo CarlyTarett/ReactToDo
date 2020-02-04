@@ -44,27 +44,18 @@ class App extends React.Component {
 
     axios.post(" https://ma5s5cp7sc.execute-api.eu-west-1.amazonaws.com/dev/tasks", newTask)
     .then( (response) => {
-      console.log(response);
-    //  const newTask = response.data;
-    //  const copyOfTasks = this.state.tasks.slice();
-    //  copyOfTasks.push(newTask);
+    
+        const newReturnedTask = response.data;
+        const copyOfTasks = this.state.tasks.slice();
+        copyOfTasks.push(newReturnedTask);
 
-    //  this.setState({
-    //   tasks: copyOfTasks
-    // })   
+        this.setState({
+          tasks: copyOfTasks
+        })   
     })
-
     .catch((err) => {
     console.log(err);
     });
-
-    // const copy = this.state.tasks.slice();
-    // copy.push(newTask);
-
-    // this.setState({
-    //   tasks: copy
-    // });
-
   };
 
   deleteTask = id => {
