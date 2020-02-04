@@ -32,26 +32,39 @@ class App extends React.Component {
     // then set them as the state 
   }
 
-   inputNewTask = (description, dueDate) => {
-    console.log("input a task");
-
-    // Create a new developer object
+     inputNewTask = (description, dueDate) => {
+    // put the first ones to match the database as it's what's sent
+    // after the : it's parameters from the functions in this code
     const newTask = {
       description: description,
-
-      //XX change the status to completed and deleted
       status: "live",
-      dateAdded: moment().format().slice(0,10),
-      dueDate: dueDate,
-      id: uuid()
+      date_added: moment().format().slice(0, 10),
+      due_date: dueDate
     };
 
-    // // Copy the array of developers from state using slice
-    const copy = this.state.tasks.slice();
-    copy.push(newTask);
-    this.setState({
-      tasks: copy
+    axios.post(" https://ma5s5cp7sc.execute-api.eu-west-1.amazonaws.com/dev/tasks", newTask)
+    .then( (response) => {
+      console.log(response);
+    //  const newTask = response.data;
+    //  const copyOfTasks = this.state.tasks.slice();
+    //  copyOfTasks.push(newTask);
+
+    //  this.setState({
+    //   tasks: copyOfTasks
+    // })   
+    })
+
+    .catch((err) => {
+    console.log(err);
     });
+
+    // const copy = this.state.tasks.slice();
+    // copy.push(newTask);
+
+    // this.setState({
+    //   tasks: copy
+    // });
+
   };
 
   deleteTask = id => {
