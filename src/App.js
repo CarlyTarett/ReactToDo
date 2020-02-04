@@ -13,55 +13,45 @@ import './App.css';
 class App extends React.Component {
   state = {
     tasks: [ ]
-  }
+  };
+
 // special built in method runs whenever mounts
   componentDidMount(){
     //fetch the tasks making a GET request
     axios.get(" https://ma5s5cp7sc.execute-api.eu-west-1.amazonaws.com/dev/tasks")
         .then( (response) => {
-          console.log(response);
           const tasks = response.data.tasks;
+          this.setState({
+            tasks: tasks
+          })
+          console.log(response);
         })
         .catch((err) => {
         console.log(err);
-        )}
+        })
     // then set them as the state 
-
   }
 
-  inputNewTask = (description, dueDate) => {
+   inputNewTask = (description, dueDate) => {
     console.log("input a task");
 
-    // put the first ones to match the database as it's what's sent
-    // after the : it's parameters from the functions in this code
+    // Create a new developer object
     const newTask = {
       description: description,
+
+      //XX change the status to completed and deleted
       status: "live",
-      date_added: moment().format().slice(0, 10),
-      due_date: dueDate
+      dateAdded: moment().format().slice(0,10),
+      dueDate: dueDate,
+      id: uuid()
     };
 
-    axios.post(" https://ma5s5cp7sc.execute-api.eu-west-1.amazonaws.com/dev/tasks", newTask)
-    .then( (response) => {
-      console.log(response);
-     const newTask = response.data;
-     const copyOfTasks = this.state.tasks.slice();
-     copyOfTasks.push(newTask);
-
-     this.setState({
-      tasks: copyOfTasks
-    })
-    })
-
-    .catch((err) => {
-    console.log(err);
-    )};
-
-
-
+    // // Copy the array of developers from state using slice
     const copy = this.state.tasks.slice();
     copy.push(newTask);
-
+    this.setState({
+      tasks: copy
+    });
   };
 
   deleteTask = id => {

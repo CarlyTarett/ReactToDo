@@ -8,9 +8,9 @@ class Header extends React.Component {
 
       <div>
 
-         <h1>To Do List</h1>  
+        <h1>To Do List</h1>
 
-      </div>   
+      </div>
     );
   }
 }
