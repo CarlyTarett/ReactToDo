@@ -58,21 +58,54 @@ class App extends React.Component {
     });
   };
 
+  // deleteTask = id => {
+
+  //   const filteredTasks = this.state.tasks.map(task => {
+
+  //     if (task.id !== id)
+  //       return task;
+  //     else
+  //       task.status = "deleted"
+  //     return task;
+  //   });
+  //   console.log(filteredTasks);
+  //   this.setState({
+  //     tasks: filteredTasks
+  //   });
+  // };
+
   deleteTask = id => {
+    axios.delete(`https://ma5s5cp7sc.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`)
+    .then( () => {
+        const filteredTasks = this.state.tasks.filter(task => {
+          if (task.id === id) return false;
+          else return true;
+        });
 
-    const filteredTasks = this.state.tasks.map(task => {
+        this.setState({
+          tasks: filteredTasks
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+ };
 
-      if (task.id !== id)
-        return task;
-      else
-        task.status = "deleted"
-      return task;
-    });
-    console.log(filteredTasks);
-    this.setState({
-      tasks: filteredTasks
-    });
-  };
+
+
+  //   const filteredTasks = this.state.tasks.map(task => {
+
+  //     if (task.id !== id)
+  //       return task;
+  //     else
+  //       task.status = "deleted"
+  //     return task;
+  //   });
+  //   console.log(filteredTasks);
+  //   this.setState({
+  //     tasks: filteredTasks
+  //   });
+  // };
 
   markDone = id => {
 
@@ -125,7 +158,7 @@ class App extends React.Component {
                     deleteTaskFunc={this.deleteTask}
                     markTaskDoneFunc={this.markDone}
                     status={task.status}
-                    dueDate={task.dueDate}
+                    dueDate={task.due_date}
                     id={task.id}
                     text={task.description}
                   />
